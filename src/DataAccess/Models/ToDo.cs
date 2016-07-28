@@ -1,4 +1,4 @@
-namespace ToDomanager.DataAccess.Models
+namespace ToDoManager.DataAccess.Models
 {
   public class ToDo
   {

@@ -4,7 +4,10 @@
 		<OutputPath>Bin\</OutputPath>
 	</PropertyGroup>
 	<ItemGroup>
-		<Compile Include="ToDoManager.cs" />		
+		<Compile Include="ToDoManager.cs" />
+		<Compile Include="DataAccess\Models\ToDo.cs" />
+		<Compile Include="DataAccess\TextToDoRepository.cs" />
+		<Compile Include="DataAccess\IToDoRepository.cs" />
 	</ItemGroup>
 	<Target Name="Build">
 		<MakeDir Directories="$(OutputPath)" Condition="!Exists('$(OutputPath)')" />
