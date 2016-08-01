@@ -12,7 +12,7 @@ namespace ToDoManager
 
       repo = new TextToDoRepository();
 
-      GetCount()
+      GetCount();
 
       int menuChoice;
       while((menuChoice = GetMenuChoice()) != 0)
@@ -25,9 +25,11 @@ namespace ToDoManager
             break;
           case 2:
             Console.WriteLine("Add new ToDo");
+            NewToDo();
             break;
           case 3:
             GetCount();
+            break;
         }
       }
     }

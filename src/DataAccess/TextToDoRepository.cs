@@ -14,6 +14,7 @@ namespace ToDoManager.DataAccess
     public TextToDoRepository()
     {
       collection = new List<ToDo>();
+      LoadFromFile();
     }
 
     public int Count()
@@ -24,6 +25,16 @@ namespace ToDoManager.DataAccess
     public List<ToDo> GetAllToDos()
     {
       return collection;
+    }
+
+    public void NewToDo(string name)
+    {
+      var toDo = new ToDo();
+      toDo.Id = 0;
+      toDo.Name = name;
+      toDo.IsCompleted = false;
+      collection.Add(toDo);
+      SaveToFile();
     }
 
     private void LoadFromFile()

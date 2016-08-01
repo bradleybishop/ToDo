@@ -6,5 +6,6 @@ namespace ToDoManager.DataAccess
   {
     int Count();
     List<ToDo> GetAllToDos();
+    void NewToDo(string name);
   }
 }
