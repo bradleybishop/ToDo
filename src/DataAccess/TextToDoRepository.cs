@@ -61,8 +61,11 @@ namespace ToDoManager.DataAccess
           string line = "";
           while((line = sr.ReadLine()) != null)
           {
-            string[] parts = line.Split('\t');
-            collection.Add(new ToDo(Convert.ToInt32(parts[0]), parts[1], Convert.ToBoolean(parts[2])));
+            if(line.Length > 0)
+            {
+              string[] parts = line.Split('\t');
+              collection.Add(new ToDo(Convert.ToInt32(parts[0]), parts[1], Convert.ToBoolean(parts[2])));
+            }
           }
         }
       }
