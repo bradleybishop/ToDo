@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using ToDoManager.DataAccess.Models;
 
 namespace ToDoManager.DataAccess
@@ -35,6 +36,15 @@ namespace ToDoManager.DataAccess
       toDo.IsCompleted = false;
       collection.Add(toDo);
       SaveToFile();
+    }
+
+    public void UpdateToDoComplete(int id, bool status)
+    {
+      if(collection.Any(x => x.Id == id))
+      {
+        collection.First(x => x.Id == id).IsCompleted = status;
+        SaveToFile();
+      }
     }
 
     private void LoadFromFile()

@@ -30,6 +30,9 @@ namespace ToDoManager
           case 3:
             GetCount();
             break;
+          case 4:
+            MarkToDoComplete();
+            break;
         }
       }
     }
@@ -45,6 +48,7 @@ namespace ToDoManager
       Console.WriteLine("1. List ToDo's");
       Console.WriteLine("2. Add ToDo");
       Console.WriteLine("3. Get ToDo Count");
+      Console.WriteLine("4. Mark ToDo Complete");
       Console.WriteLine("0. Exit");
     }
 
@@ -66,7 +70,7 @@ namespace ToDoManager
       var items = repo.GetAllToDos();
       foreach(var item in items)
       {
-        Console.WriteLine("{0} - {1} - {2}", item.Id, " ", item.Name);
+        Console.WriteLine("{0} - {1} - {2}", item.Id, item.IsCompleted?" X ":"   ", item.Name);
       }
     }
 
@@ -75,6 +79,18 @@ namespace ToDoManager
       Console.WriteLine("Name");
       string name = Console.ReadLine();
       repo.NewToDo(name);
+    }
+
+    private static void MarkToDoComplete()
+    {
+      DisplayAllItems();
+      Console.WriteLine("What ToDo # to complete?");
+      string input = Console.ReadLine();
+      int id;
+      if(int.TryParse(input, out id))
+      {
+        repo.UpdateToDoComplete(id, true);
+      }
     }
   }
 }
