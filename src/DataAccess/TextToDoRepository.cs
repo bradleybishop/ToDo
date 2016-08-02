@@ -78,8 +78,8 @@ namespace ToDoManager.DataAccess
         if(File.Exists(backupFile))
         {
           File.Delete(backupFile);
-          File.Move(fileName, backupFile);
         }
+        File.Move(fileName, backupFile);
       }
 
       using(StreamWriter sw = File.CreateText(fileName))
