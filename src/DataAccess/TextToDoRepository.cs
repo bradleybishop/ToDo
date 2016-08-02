@@ -32,6 +32,11 @@ namespace ToDoManager.DataAccess
     {
       var toDo = new ToDo();
       toDo.Id = 0;
+      if(collection.Any())
+      {
+        toDo.Id = collection.Max(x => x.Id) + 1;
+      }
+      
       toDo.Name = name;
       toDo.IsCompleted = false;
       collection.Add(toDo);
